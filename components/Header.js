@@ -1,18 +1,29 @@
 import Image from 'next/Image'
+import headImg from './images/header.png'
 
-const Header = () => {
+function Header() {
     return (
-        <Header>
-           <div>
-               <Image
-               src="https://links.papareact.com/qd3"
-               layout="fil"/>
-           </div>
+        <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
 
-           <div></div>
+            {/* left */}
+            <div className="relative flex h-10 cursor-pointer my-auto">
+                <Image 
+                    src={headImg}
+                    layout="fill"
+                    objectFit="contain"
+                    objectPosition="left"
+                />
+            </div>
 
-           <div></div>
-        </Header>
+            {/* Middle */}
+            <div>
+            </div>
+
+            {/* Right */}
+            <div>
+            </div>
+
+        </header>
     )
 }
 
