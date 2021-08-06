@@ -102,7 +102,7 @@ function Header({ placeholder }) {
       </div>
 
       {searchInput && (
-        <div className="flex flex-col col-span-3 mx-auto">
+        <div className="flex flex-col col-span-3 mx-auto dark:text-black">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
@@ -110,7 +110,7 @@ function Header({ placeholder }) {
             onChange={handleSelect}
           />
           <div className="flex" items-center border-b mb-4>
-            <h2 className="text-2xl flex-grow font-semibold">
+            <h2 className="text-2xl flex-grow font-semibold dark:text-black">
               Number of Guests
             </h2>
             <UserIcon className="h-7" />
