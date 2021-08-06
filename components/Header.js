@@ -17,7 +17,7 @@ import { useRouter } from "next/dist/client/router";
 import { useTheme } from "next-themes";
 
 function Header({ placeholder }) {
-  const {theme, setTheme} = useTheme();
+  const { theme, setTheme } = useTheme();
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -84,15 +84,13 @@ function Header({ placeholder }) {
       <div className="flex items-center space-x-4 justify-end text-gray-500">
         {changeBg ? (
           <button onClick={changeBg}>
-          <SunIcon className="h-5 border rounded-full" />
-        </button>
-          ): (
-             <button>
-          <MoonIcon className="h-5 border rounded-full " />
-        </button>
-          )}
-        
-       
+            <SunIcon className="h-5 border rounded-full" />
+          </button>
+        ) : (
+          <button>
+            <MoonIcon className="h-5 border rounded-full " />
+          </button>
+        )}
 
         <p className="hidden md:inline-flex cursor-pointer">Become a host</p>
         <GlobeAltIcon className="h-6 cursor-pointer" />
