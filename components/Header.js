@@ -9,16 +9,24 @@ import {
   MenuIcon,
   UserCircleIcon,
   UserIcon,
+  SunIcon,
+  MoonIcon,
 } from "@heroicons/react/solid";
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/dist/client/router";
+import { useTheme } from "next-themes";
 
 function Header({ placeholder }) {
+  const {theme, setTheme} = useTheme();
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState(1);
   const router = useRouter();
+
+  const changeBg = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   const selectionRange = {
     startDate: startDate,
@@ -46,7 +54,7 @@ function Header({ placeholder }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
+    <header className="sticky top-0 z-50 grid grid-cols-3 bg-gray-200 dark:bg-white shadow-md p-5 md:px-10">
       {/* left */}
       <div
         onClick={() => router.push("/")}
@@ -74,6 +82,18 @@ function Header({ placeholder }) {
 
       {/* Right */}
       <div className="flex items-center space-x-4 justify-end text-gray-500">
+        {changeBg ? (
+          <button onClick={changeBg}>
+          <SunIcon className="h-5 border rounded-full" />
+        </button>
+          ): (
+             <button>
+          <MoonIcon className="h-5 border rounded-full " />
+        </button>
+          )}
+        
+       
+
         <p className="hidden md:inline-flex cursor-pointer">Become a host</p>
         <GlobeAltIcon className="h-6 cursor-pointer" />
 
