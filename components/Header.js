@@ -123,10 +123,16 @@ function Header({ placeholder }) {
             />
           </div>
           <div className="flex pt-5">
-            <button onClick={resetInput} className="flex-grow text-gray-500">
+            <button
+              onClick={resetInput}
+              className="flex-grow text-gray-500 p-2 rounded-full hover:bg-green-500 hover:text-white hover:shadow-xl active:scale-90 transition duration-300 ease-out"
+            >
               Cancel
             </button>
-            <button onClick={search} className="flex-grow text-red-500">
+            <button
+              onClick={search}
+              className="flex-grow text-red-500 p-2  rounded-full hover:bg-red-400 hover:text-white hover:shadow-xl active:scale-90 transition duration-300 ease-out"
+            >
               Search
             </button>
           </div>
