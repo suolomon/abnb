@@ -40,10 +40,11 @@ function Map({searchResults}) {
             >
               <p
                 onClick={() => setSelectedLocation(result)}
-                className="cursor-pointer z-0"
+                className="cursor-pointer z-0 border-2 border-black rounded-lg text-black bg-gray-100 shadow-xl text-sm p-1 font-bold hover:animate-bounce hover:bg-red-400 hover:text-black active:scale-90 transition duration-300 hover:border-2 hover:border-black  "
                 aria-label="label-pin"
               >
-                <svg
+                {result.price.slice(0, 4)}
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-7 w-7 animate-pulse text-2xl"
                   fill="red"
@@ -62,7 +63,7 @@ function Map({searchResults}) {
                     strokeWidth={2}
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
-                </svg>
+                </svg> */}
               </p>
             </Marker>
             {/* pop up if click on a maker */}
@@ -77,7 +78,10 @@ function Map({searchResults}) {
                 >
                   <p className="font-bold text-sm pb-2"> {result.title}</p>
                   <div className="">
-                    <img className="h-[200px] rounded-lg center" src={result.img} />
+                    <img
+                      className="h-[200px] rounded-lg center"
+                      src={result.img}
+                    />
                     {/* <p className="ml-2 text-sm"> {result.description}</p> */}
                   </div>
                   {/* <p className="ml-2 text-sm m-w-50px"> {result.description}</p> */}
