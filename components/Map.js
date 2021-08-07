@@ -40,7 +40,7 @@ function Map({searchResults}) {
             >
               <p
                 onClick={() => setSelectedLocation(result)}
-                className="cursor-pointer z-0 border-2 border-black rounded-lg text-black bg-gray-100 shadow-xl text-sm p-1 font-bold hover:animate-bounce hover:bg-red-400 hover:text-black active:scale-90 transition duration-300 hover:border-2 hover:border-black  "
+                className="cursor-pointer z-0 border-2 border-black rounded-lg text-black bg-gray-100 shadow-xl text-sm p-1 font-bold hover:animate-bounce hover:bg-black hover:text-white active:scale-90 transition duration-300 hover:border-2 hover:border-black  "
                 aria-label="label-pin"
               >
                 {result.price.slice(0, 4)}
