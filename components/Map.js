@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import ReactMapGL, {Marker, Popup} from 'react-map-gl'
 import getCenter from 'geolib/es/getCenter'
+import { StarIcon } from "@heroicons/react/solid";
 
 function Map({searchResults}) {
     const [selectedLocation, setSelectedLocation] = useState({})
@@ -39,7 +40,7 @@ function Map({searchResults}) {
             >
               <p
                 onClick={() => setSelectedLocation(result)}
-                className="cursor-pointer"
+                className="cursor-pointer z-0"
                 aria-label="label-pin"
               >
                 <svg
@@ -65,15 +66,29 @@ function Map({searchResults}) {
               </p>
             </Marker>
             {/* pop up if click on a maker */}
-            <div className="text-black">
+            <div className="text-black lex flex-col ">
               {selectedLocation.long === result.long ? (
                 <Popup
                   onClose={() => setSelectedLocation({})}
                   closeOnClick={true}
                   latitude={result.lat}
                   longitude={result.long}
+                  className="z-50"
                 >
-                  {result.title}
+                  <p className="font-bold text-sm pb-2"> {result.title}</p>
+                  <div className="">
+                    <img className="h-[200px] rounded-lg center" src={result.img} />
+                    {/* <p className="ml-2 text-sm"> {result.description}</p> */}
+                  </div>
+                  {/* <p className="ml-2 text-sm m-w-50px"> {result.description}</p> */}
+
+                  <div className="flex justify-between pl-2 pb-2 pt-2">
+                    <p className="flex items-center">
+                      <StarIcon className="h-5 text-red-400" />
+                      {result.star}
+                    </p>
+                    <p className="font-bold"> {result.price}</p>
+                  </div>
                 </Popup>
               ) : (
                 false
@@ -81,7 +96,7 @@ function Map({searchResults}) {
             </div>
           </div>
         ))}
-       {/* { console.log(selectedLocation)} */}
+        {/* { console.log(selectedLocation)} */}
       </ReactMapGL>
     );
 }
