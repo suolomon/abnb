@@ -18,7 +18,7 @@ function Search({ searchResults }) {
         placeholder={`${location} | ${range} | ${numberOfGuests} guests`}
       />
 
-      <main className="flex">
+      <main className=" xl:flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
             300+ Stays - {range} - for 5 {numberOfGuests} guests
@@ -34,27 +34,26 @@ function Search({ searchResults }) {
             <p className="button">Rooms and beds</p>
             <p className="button">Filters and more</p>
           </div>
-        <div className="flex flex-col">
-
-          {searchResults.map(
-            ({ img, location, title, description, star, price, total }) => (
-              <InfoCard
-                img={img}
-                location={location}
-                title={title}
-                description={description}
-                star={star}
-                price={price}
-                total={total}
-              />
-            )
-          )}
-        </div>
+          <div className="flex flex-col">
+            {searchResults.map(
+              ({ img, location, title, description, star, price, total }) => (
+                <InfoCard
+                  img={img}
+                  location={location}
+                  title={title}
+                  description={description}
+                  star={star}
+                  price={price}
+                  total={total}
+                />
+              )
+            )}
+          </div>
+        </section>
+        <section className="xl:inline-flex xl:min-w-[600px]">
+          <Map searchResults={searchResults} />
         </section>
 
-        <section className="hidden xl:inline-flex xl:min-w-[600px]">
-          <Map searchResults={searchResults}/>
-        </section>
       </main>
 
       <Footer />
